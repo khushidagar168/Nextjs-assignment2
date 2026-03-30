@@ -13,6 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { toast } from "sonner"
+import { AnalyticsDetails } from "@/components/dashboard/analytics-details"
 
 export default function Home() {
   const handleDownload = () => {
@@ -22,7 +23,7 @@ export default function Home() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div className="flex items-center justify-between space-y-2">
         <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
         <div className="flex items-center space-x-2">
@@ -41,24 +42,22 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <Tabs defaultValue="overview" className="space-y-4">
+      <Tabs defaultValue="overview" className="space-y-6">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
           <TabsTrigger value="reports" disabled>Reports</TabsTrigger>
           <TabsTrigger value="notifications" disabled>Notifications</TabsTrigger>
         </TabsList>
-        <TabsContent value="overview" className="space-y-4">
+        <TabsContent value="overview" className="space-y-6">
           <OverviewCards />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
             <AnalyticsChart className="col-span-4" />
             <RecentSales className="col-span-3" />
           </div>
         </TabsContent>
-        <TabsContent value="analytics" className="space-y-4">
-           <div className="flex h-[400px] items-center justify-center rounded-md border border-dashed">
-             <p className="text-muted-foreground">Analytics details would go here.</p>
-           </div>
+        <TabsContent value="analytics" className="space-y-6">
+           <AnalyticsDetails />
         </TabsContent>
       </Tabs>
     </div>
